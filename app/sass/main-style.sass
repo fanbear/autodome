@@ -1,0 +1,199 @@
+@import "vars"
+
+$textColor: #a7a7a7
+
+//Контентная часть главной
+.bestseller
+    border: 2px solid #0e69b3
+    border-radius: 5px
+    flex-direction: column
+    margin: 60px 0
+    .bestseller-title
+        margin-top: 40px
+        font-size: 32px
+        font-weight: 300
+        span
+            font-weight: bold
+
+.product-wrapper
+    justify-content: flex-start
+    display: flex
+    margin: 0 30px
+    min-height: 614px
+    .product-layout
+        flex: 0 0 370px
+        padding-bottom: 115px
+        position: relative
+        margin: 0 7.5px
+        .product-thumb
+            flex-direction: column
+            margin-top: 30px
+            .product-title
+                margin: 20px 80px 20px
+                font-size: 18px
+                a
+                    color: #626060
+                    text-align: center
+            .product-option
+                min-height: 50px
+                min-width: 175px
+                margin-bottom: 15px
+                border: 1px solid #e5e5e5
+                border-radius: 5px
+                label
+                    margin: 0 6px
+                [type=radio]
+                    position: absolute
+                    opacity: 0
+                    width: 0
+                    height: 0
+                    transition: 0.2s ease-out
+                    border: 2px solid transparent
+                [type=radio] + img
+                    cursor: pointer
+                [type=radio]
+                    &:checked + img
+                        border: 2px solid #0259a9
+                        border-radius: 50%
+                        transition: 0.2s ease-in
+            .product-price
+                font-size: 21px
+                .product-price__old
+                    color: #686868
+                    text-decoration: line-through
+                .product-price__new
+                    margin: 10px 0
+                    color: #0259a9
+            .product-hover
+                display: none
+                .product-raiting
+                    margin-bottom: 15px
+                    .product-raiting__item 
+                        margin: 2.5px
+                    .full-star
+                        color: #fac916
+                    .clear-star
+                        color: #e3e3e3
+                .product-attribute
+                    p
+                        font-size: 18px
+                        color: #373737
+                        font-weight: 600
+                        margin-bottom: 10px
+                    ul
+                        padding-left: 20px
+                        li
+                            margin-bottom: 10px
+                            color: black
+                            span
+                                color: #626060
+            &:hover
+                position: absolute
+                top: 0
+                background-color: rgb(255, 255, 255)
+                box-shadow: 0px 2px 46px 0px rgba(0, 0, 0, 0.09)
+                transition: .1s ease-in
+                .product-hover
+                    display: block
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//Футтер
+.main-footer
+    background: #f6f6f8
+    padding: 85px 0
+    +bp(tb)
+        padding: 65px 30px
+    .footer-item
+        p
+            font-size: 20px
+            margin-bottom: 27.5px
+        ul
+            -webkit-columns: 2
+            -moz-columns: 2
+            columns: 2
+            padding-left: 0
+            +bp(tb)
+                columns: 1
+            li
+                list-style: none
+                padding: 12.5px 0
+                min-width: 120px
+                list-style-position: inside
+                -webkit-column-break-inside: avoid
+                page-break-inside: avoid
+                break-inside: avoid
+                margin-right: 60px
+                +bp(tb)
+                    margin-right: 0
+                a
+                    color: $textColor
+                i
+                    margin-right: 20px
+    .footer-phone
+        margin: 40px 0
+        a
+            font-size: 27px
+            color: $textColor
+            font-weight: 300
+            +bp(mb)
+                font-size: 22px
+            img
+                margin-right: 25px
+        span
+            padding-left: 69px
+    .footer-social
+        display: flex
+        padding-left: 69px
+        .footer-social__item
+            width: 37px
+            height: 37px
+            border: 1px solid #dddddd
+            border-radius: 3px
+            color: $textColor
+            margin-right: 12px
+            cursor: pointer
+            &:hover
+                border: 1px solid #0259a9
+.main-footer__underline
+    background: #f1f1f2
+    height: 75px
+    box-shadow: 0 -2px 5px 0px lightgray
+    +bp(tb)
+        padding: 0 30px
+    +bp(mb)
+        margin: 0
+        height: auto
+        padding: 0 15px
+    .underline
+        +bp(mb)
+            flex-wrap: wrap
+            justify-content: center
+        .underline-item
+            height: 75px
+            p
+                font-size: 16px
+                font-weight: 300
+                color: $textColor
+            a
+                margin-right: 20px
+                color: $textColor
+                i
+                    font-size: 40px

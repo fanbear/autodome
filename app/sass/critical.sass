@@ -1,0 +1,262 @@
+
+@import "vars"
+body
+	font-family: 'Roboto', sans-serif
+p,
+a,
+li,
+span
+	margin: 0
+	padding: 0
+	font-family: 'Roboto', sans-serif
+button
+	border: 0
+	background: transparent
+	border-radius: 0
+input
+	border: 0
+	outline: none
+ul
+	padding: 0
+	margin: 0
+
+
+//Переменные для быстрого изменения стилей
+$linkColor: #0259a9
+$button-gradient-moz: -moz-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,191,234) 100%)
+$button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,191,234) 100%)
+//Обшие селекторы	
+.flex-container
+	display: flex
+	justify-content: center
+.flex-row
+	width: 1230px
+.flex-right-position
+	margin-left: auto
+.flex-left-position
+	margin-right: auto
+.hover-link
+	text-decoration: none
+	transition: 0.3s ease-in
+	&:hover
+		color: $linkColor !important
+		transition: 0.3s ease-out
+.open-selector
+	display: block !important
+	z-index: 1000 !important
+.flex-center
+	display: flex
+	justify-content: center
+	align-items: center
+.flex-evenly
+	display: flex
+	justify-content: space-evenly
+	align-items: center
+.flex-align__center
+	display: flex
+	align-items: center
+.hide-mobile
+	+bp(mb)
+		display: none !important
+.align-stretch
+	align-items: stretch
+.space-between
+	justify-content: space-between
+.flex
+	display: flex
+
+
+
+// Верхная часть шапки
+.top__line-bg
+	border-bottom: 1px solid #e5e5e5
+	background: #fafafa
+	+bp(tb)
+		display: none
+.top__line
+	height: 62px
+	display: flex
+	.top__line-icon
+		padding-left: 28px
+		padding-right: 17px
+	.top__line-text
+		span
+			color: #a7a7a7
+			a
+				color: black
+				font-size: 16px
+		p
+			margin-bottom: 4px
+			a
+			
+				color: #a7a7a7
+				text-decoration: none
+			span
+				color: #a7a7a7
+	.top__line-border
+		height: 40px
+		width: 1px
+		background: #e5e5e5
+	.top__line-phone
+		display: flex
+		align-items: center
+		flex: 0 0 248px
+	.top__line-mail
+		display: flex
+		align-items: center
+		flex: 0 0 268px
+	.top__line-address
+		position: relative
+		flex: 0 0 248px
+		display: flex
+		align-items: center
+		.top__line-button__open
+			align-self: flex-start
+			padding: 10px 10px
+			cursor: pointer	
+		.top__line-text__hover
+			position: absolute
+			top: 64px
+			left: 0
+			width: 100%
+			padding: 10px
+			background: #fafafa
+			display: none
+	.top__line-user
+		display: flex
+		align-items: center
+		flex: 0 0 280px
+
+
+//Шапка сайта
+.header
+	display: flex
+	height: 122px
+	align-items: center
+	+bp(tb)
+		flex-wrap: wrap
+	.header-logotype
+		flex: 0 0 268px
+		+bp(tb)
+			flex: 3 0 auto
+			height: 62px
+			order: -2
+			border-bottom: 1px solid #e5e5e5
+			background: #fafafa
+			align-items: center
+			padding-left: 30px
+		img
+			+bp(mb)
+				width: 186px
+				height: 23px
+	.header-search
+		display: flex
+		+bp(tb)
+			order: 1
+			width: 100%
+			padding-right: 30px
+			margin-top: 30px
+		.header-search__form
+			position: relative
+			flex: 0 0 675px
+			padding-left: 20px
+			+bp(tb)
+				flex: 0 0 85%
+			+bp(mb)
+				flex: 0 0 95%
+			input
+				width: 517px
+				height: 47px
+				border-left: 2px solid #eeeeee
+				border-bottom: 2px solid #eeeeee
+				border-top: 2px solid #eeeeee
+				padding-left: 22px
+				color: #9b9b9b
+				border-radius: 5px 0 0 5px
+				+bp(tb)
+					width: 100%
+			.header-search__category
+				position: absolute
+				right: 140px
+				top: 14px
+				width: 170px
+				height: 26px
+				border-left: 2px solid #eeeeee
+				display: flex
+				justify-content: flex-end
+				font-size: 16px
+				.header-search__open-category
+					margin-left: 6px
+					padding: 10px
+					cursor: pointer
+			.header-search__btn
+				width: 136px
+				height: 53px
+				font-size: 17px
+				color: #FFFFFF
+				cursor: pointer
+				background-image: $button-gradient-moz
+				background-image: $button-gradient-kit
+				border-radius: 0 5px 5px 0
+			ul.dropdown-menu
+				display: none
+				position: absolute
+				top: 40px
+				width: 172px
+				left: -2px
+				background: #fafafa
+				padding-bottom: 5px
+				border-left: 2px solid #eeeeee
+				border-bottom: 2px solid #eeeeee
+				border-right: 2px solid #eeeeee
+				li
+					list-style: none
+					padding: 5px 12px
+					font-size: 14px
+					cursor: pointer
+	.header-shop
+		flex: 1 0 auto
+		+bp(tb)
+			order: -1
+			flex: 1 0 auto
+			margin-left: auto
+			border-bottom: 1px solid #e5e5e5
+			background: #fafafa
+			height: 62px
+			padding-right: 30px
+		a
+			font-size: 28px
+			color: #717375
+		.header-shop__basket
+			position: relative
+			.header-shop__basket-count
+				background: #0259a9
+				width: 20px
+				height: 20px
+				border-radius: 10px
+				font-size: 12px
+				color: white
+				position: absolute
+				top: -10px
+				right: -20px
+				+bp(tb)
+					top: -10px
+					right: -16px
+	.table-menu
+		display: none
+		font-size: 32px
+		margin-left: 30px
+		margin-right: 20px
+		cursor: pointer
+		+bp(tb)
+			display: flex
+			flex: 0 0 10%
+			margin: 0
+	.mobile-menu
+		display: none
+		+bp(mb)
+			display: flex
+			order: -3
+			padding: 0 15px
+			font-size: 30px
+//------------------------

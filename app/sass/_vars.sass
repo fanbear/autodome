@@ -1,0 +1,13 @@
+
+// брейкпоинты для адаптивной верстки
+$w-tb: 1200px
+$w-mb: 478.98px
+
+//миксин для быстрого использования адаптивной верстки
+@mixin bp($media) 
+    @if $media == tb 
+        @media (max-width: $w-tb)
+            @content
+    @else if $media == mb 
+        @media (max-width: $w-mb)
+            @content
