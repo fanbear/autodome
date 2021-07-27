@@ -1,25 +1,52 @@
 @import "vars"
 
 $textColor: #a7a7a7
+$linkColor: #626060
+$priceColor: #0259a9
+$button-gradient-moz: -moz-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,191,234) 100%)
+$button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,191,234) 100%)
 
+//рейтинг товара
+.product-raiting
+    margin-bottom: 10px
+    .product-raiting__item 
+        margin: 2.5px
+    .full-star
+        color: #fac916
+        font-size: 18px
+    .clear-star
+        color: #e3e3e3
+        font-size: 18px
+
+#common-home
+    flex-direction: column
+    align-items: center
 //Контентная часть главной
 .bestseller
     border: 2px solid #0e69b3
     border-radius: 5px
     flex-direction: column
     margin: 60px 0
+    +bp(tb)
+        border: 0
+    +bp(mb)
+        margin-bottom: 0
     .bestseller-title
         margin-top: 40px
         font-size: 32px
         font-weight: 300
         span
             font-weight: bold
+    .product-wrapper
+        +bp(mb)
+            margin: 0
 
+//карточка товара
 .product-wrapper
     justify-content: flex-start
     display: flex
     margin: 0 30px
-    min-height: 614px
+    min-height: 570px
     .product-layout
         flex: 0 0 370px
         padding-bottom: 115px
@@ -28,8 +55,14 @@ $textColor: #a7a7a7
         .product-thumb
             flex-direction: column
             margin-top: 30px
+            .product-image
+                img
+                    max-width: 250px
+                    max-height: 250px
+                    width: auto
+                    height: auto
             .product-title
-                margin: 20px 80px 20px
+                margin: 10px 80px 10px
                 font-size: 18px
                 a
                     color: #626060
@@ -37,7 +70,7 @@ $textColor: #a7a7a7
             .product-option
                 min-height: 50px
                 min-width: 175px
-                margin-bottom: 15px
+                margin-bottom: 10px
                 border: 1px solid #e5e5e5
                 border-radius: 5px
                 label
@@ -62,18 +95,10 @@ $textColor: #a7a7a7
                     color: #686868
                     text-decoration: line-through
                 .product-price__new
-                    margin: 10px 0
-                    color: #0259a9
+                    margin: 5px 0
+                    color: $priceColor
             .product-hover
                 display: none
-                .product-raiting
-                    margin-bottom: 15px
-                    .product-raiting__item 
-                        margin: 2.5px
-                    .full-star
-                        color: #fac916
-                    .clear-star
-                        color: #e3e3e3
                 .product-attribute
                     p
                         font-size: 18px
@@ -83,10 +108,25 @@ $textColor: #a7a7a7
                     ul
                         padding-left: 20px
                         li
-                            margin-bottom: 10px
+                            margin-bottom: 6px
                             color: black
                             span
                                 color: #626060
+                .product-button
+                    margin: 20px 0
+                    .prodcut-button__basket
+                        width: 150px
+                        height: 52px
+                        font-size: 17px
+                        color: white
+                        background: $button-gradient-moz
+                        background: $button-gradient-kit
+                        border-radius: 5px
+                    .prodcut-button__wishlist,
+                    .prodcut-button__compare
+                        margin-left: 15px
+                        font-size: 24px
+                        color: #717375
             &:hover
                 position: absolute
                 top: 0
@@ -95,32 +135,285 @@ $textColor: #a7a7a7
                 transition: .1s ease-in
                 .product-hover
                     display: block
+            +bp(tb)
+                background-color: rgb(255, 255, 255)
+                box-shadow: 0px 2px 46px 0px rgba(0, 0, 0, 0.03)
+                .product-hover
+                    display: block
 
+//Модуль табов
+.product-tabs
+    margin-top: 85px
+    +bp(tb)
+        padding: 0 30px
+    +bp(mb)
+        padding: 0
+        margin-top: 0
+    .product-tabs__header
+        border-bottom: 1px solid #ebebeb
+    .product-tabs__header-title
+        margin-right: 45px
+        font-size: 20px
+        color: #a4a4a4
+        padding-bottom: 25px
+        +bp(mb)
+            margin-right: 15px
+            font-size: 16px
+    .product-tabs__header-active
+        position: relative
+        color: #090909
+        &::after
+            content: ""
+            background: #0259a9
+            height: 3px
+            width: calc(100% + 5px)
+            display: flex
+            bottom: 0
+            position: absolute
+    .product-tabs__content
+        padding: 85px 0
+        .product-tabs__content-wrapper
+            flex-wrap: wrap
+            display: none
+        .product-tabs__cart
+            flex-direction: column
+            padding: 0 7.5px
+            flex: 0 0 270px
+            position: relative
+            +bp(tb)
+                flex: 0 0 calc(100% / 2)
+                padding: 0
+                &:nth-child(2n)
+                    &::after
+                        display: none
+            +bp(mb)
+                flex: 0 0 calc(100% - 10px)
+                &:nth-child(1n)
+                    &::after
+                        display: none
+            &::after
+                content: ''
+                display: flex
+                position: absolute
+                height: 45%
+                width: 1px
+                background: #ebebeb
+                right: 0
+            &:nth-child(4n)
+                &::after
+                    display: none
+            img
+                margin-bottom: 50px
+                max-width: 200px
+                max-height: 130px
+                width: auto
+                height: auto
+            .product-tabs__cart-title
+                margin-bottom: 10px
+                a
+                    color: $linkColor
+                    font-size: 18px
+            .product-tabs__cart-price
+                margin-bottom: 40px
+                font-size: 21px
+                color: #0259a9
+        .product-tabs__content-active
+            display: flex
     
     
+//Баннер контента
+.content-banner
+    background: #fbfbfb
+    width: 100%
+    padding: 40px 0
     
     
+//мини карточка в виде баннеров
+.mini-cart__wrapper
+    margin: 90px -7.5px
+    +bp(tb)
+        flex-wrap: wrap
+    .mini-cart__item
+        border-style: solid
+        border-width: 2px
+        border-color: rgb(228, 228, 228)
+        background-color: rgb(255, 255, 255)
+        box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.1)
+        padding: 45px 30px
+        width: calc(1/2*100% - 15px)
+        margin: 7.5px
+        +bp(tb)
+            width: 100%
+            &:nth-child(1n)
+                margin-bottom: 25px
+        +bp(mb)
+            flex-wrap: wrap
+            justify-content: center
+        .mini-cart__content
+            margin-right: 20px
+            +bp(mb)
+                display: flex
+                flex-direction: column
+                align-items: center
+            .mini-cart__content-title
+                color: #2a2a2a
+                font-size: 24px
+                margin-bottom: 20px
+            .mini-cart__content-link
+                margin-bottom: 15px
+                +bp(mb)
+                    text-align: center
+                a
+                    font-size: 20px
+                    font-weight: 300
+                    color: $linkColor
+                    
+            .mini-cart__content-price
+                margin-bottom: 25px
+                color: $priceColor
+                font-size: 21px
+        .mini-cart__img
+            +bp(mb)
+                justify-content: center
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+//Рекомендации
+.rec
+    flex-wrap: wrap
+    margin-bottom: 120px
+    .rec-title
+        flex: 1 1 100%
+        font-size: 32px
+        margin-bottom: 30px
+    .rec-line
+        background-color: #ebebeb
+        height: 1px
+        padding: 0
+        margin: 0
+        width: calc(100% - 445px)
+        border: 0
+    .rec-product
+        flex: 1 1 calc(100% - 415px)
+        margin-right: 30px
+        margin-left: -15px
+        padding-top: 20px
+        flex-wrap: wrap
+        justify-content: flex-start
+        
+        .rec-product__card
+            width: calc(25% - 30px)
+            margin: 0 15px
+            flex-direction: column
+            align-items: center
+            margin-top: 20px
+            .rec-product__card-img
+                img
+                    max-width: 160px
+                    height: auto
+                    margin: 50px 0
+            .rec-product__card-link
+                margin-bottom: 10px
+                a
+                    color: $linkColor
+                    font-size: 18px
+            .rec-product__card-price
+                margin-bottom: 25px
+                color: $priceColor
+                font-size: 21px
+    .rec-banner
+        flex: 1 1 calc(100% - 836px)
+        flex-direction: column
+        align-items: center
+        justify-content: flex-end
+        border: 2px solid #0259a9
+        border-radius: 12px
+        .rec-banner__img
+            img
+                max-width: 360px
+                width: 100%
+                height: auto
+        .rec-banner__link
+            margin-top: 40px
+            a
+                font-size: 24px
+                color: #2a2a2a
+        .rec-banner__price
+            font-size: 21px
+            color: $priceColor
+            margin: 15px 0
+        .product-raiting 
+            margin-bottom: 20px
+
+
+//Информационный блок
+
+.support
+    border-top: 1px solid #ebebeb
+    width: 100%
+    padding: 48px 0
+    .support-item
+        max-width: 350px
+        width: 100%
+        min-width: 157px
+        padding: 30px 10px 30px 30px
+        flex-direction: column
+        border: 1px solid rgb(229, 229, 229)
+        border-radius: 6px
+        transition: 0.2s
+        &:hover
+            box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.1)
+            transition: 0.2s
+        p
+            display: flex
+            align-items: center
+            font-size: 19px
+            &:nth-child(1n)
+                color: #252924
+                img
+                    margin-right: 15px
+            &:nth-child(2n)
+                color: #a8a8a8
+                padding-left: 45px
+                img
+                    margin-right: 20px       
+
+//Подписаться
+.subscribe
+    height: 154px
+    width: 100%
+    background-position: center
+    background-repeat: no-repeat
+    .subscribe-text
+        font-size: 28px
+        color: white
+    .subscribe-input
+        min-width: 600px
+        position: relative
+        input
+            width: 100%
+            height: 62px
+            border-radius: 6px
+            font-size: 18px
+            text-align: center
+            &::placeholder
+                text-align: left
+                color: #909090
+                padding-left: 30px
+        button
+            color: #d7d7d7
+            font-size: 30px
+            position: absolute
+            top: 18px
+            right: 20px
+
 //Футтер
 .main-footer
     background: #f6f6f8
     padding: 85px 0
     +bp(tb)
         padding: 65px 30px
+    +bp(bm)
+        padding: 65px 0
     .footer-item
         p
             font-size: 20px
