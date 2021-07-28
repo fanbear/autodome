@@ -29,8 +29,6 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
     margin: 60px 0
     +bp(tb)
         border: 0
-    +bp(mb)
-        margin-bottom: 0
     .bestseller-title
         margin-top: 40px
         font-size: 32px
@@ -47,11 +45,15 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
     display: flex
     margin: 0 30px
     min-height: 570px
+    +bp(tb)
+        margin: 0
     .product-layout
         flex: 0 0 370px
         padding-bottom: 115px
         position: relative
         margin: 0 7.5px
+        +bp(tb)
+            padding-bottom: 0
         .product-thumb
             flex-direction: column
             margin-top: 30px
@@ -285,6 +287,8 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
         flex: 1 1 100%
         font-size: 32px
         margin-bottom: 30px
+        +bp(mb)
+            text-align: center
     .rec-line
         background-color: #ebebeb
         height: 1px
@@ -292,6 +296,8 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
         margin: 0
         width: calc(100% - 445px)
         border: 0
+        +bp(tb)
+            width: 100%
     .rec-product
         flex: 1 1 calc(100% - 415px)
         margin-right: 30px
@@ -299,13 +305,19 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
         padding-top: 20px
         flex-wrap: wrap
         justify-content: flex-start
-        
+        +bp(tb)
+            flex: 1 1 100%
+            margin: 0
         .rec-product__card
             width: calc(25% - 30px)
             margin: 0 15px
             flex-direction: column
             align-items: center
             margin-top: 20px
+            +bp(tb)
+                width: (calc(33% - 30px))
+            +bp(mb)
+                width: 100%
             .rec-product__card-img
                 img
                     max-width: 160px
@@ -351,6 +363,10 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
     border-top: 1px solid #ebebeb
     width: 100%
     padding: 48px 0
+    .support-wrapper
+        +bp(tb)
+            flex-wrap: wrap
+            justify-content: center 
     .support-item
         max-width: 350px
         width: 100%
@@ -376,19 +392,34 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
                 padding-left: 45px
                 img
                     margin-right: 20px       
-
+        +bp(tb)
+            margin-bottom: 25px
 //Подписаться
 .subscribe
     height: 154px
     width: 100%
     background-position: center
     background-repeat: no-repeat
+    +bp(mb)
+        height: 170px
+    .subscribe-wrapper
+        +bp(mb)
+            flex-wrap: wrap
     .subscribe-text
         font-size: 28px
         color: white
+        +bp(tb)
+            width: 100%
+        +bp(mb)
+            margin-bottom: 10px
+            text-align: center
     .subscribe-input
         min-width: 600px
         position: relative
+        +bp(tb)
+            min-width: 50%
+        +bp(mb)
+            min-width: 100%
         input
             width: 100%
             height: 62px

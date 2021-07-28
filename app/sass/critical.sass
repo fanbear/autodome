@@ -62,6 +62,9 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 .align-center
 	display: flex
 	align-items: center
+.hide-tablet
+	+bp(tb)
+		display: none !important
 .hide-mobile
 	+bp(mb)
 		display: none !important
