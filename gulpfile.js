@@ -35,12 +35,21 @@ function styles() {
 	.pipe(dest('build/css/')) // Выгрузим результат в папку "build/css/"
 	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
+function modules() {
+	return src('app/sass/modules.sass') // Выбираем источник: "app/sass/main.sass" или "app/less/main.less"
+	.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
+	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
+	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) // Минифицируем стили
+	.pipe(dest('build/css/')) // Выгрузим результат в папку "build/css/"
+	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
+}
 
 function startwatch() {
 
 	// Мониторим файлы препроцессора на изменения
 	watch('app/sass/critical.sass', critical);
 	watch('app/sass/main-style.sass', styles);
+	watch('app/sass/modules.sass', modules);
 
 	// Мониторим файлы HTML на изменения
 	watch('app/**/*.html').on('change', browserSync.reload);
@@ -53,6 +62,7 @@ exports.browsersync = serve;
 exports.styles = styles;
 
 exports.critical = critical;
+exports.critical = modules;
 
 // Экспортируем дефолтный таск с нужным набором функций
 exports.default = parallel(serve, startwatch);
