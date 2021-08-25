@@ -6,17 +6,6 @@ $priceColor: #0259a9
 $button-gradient-moz: -moz-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,191,234) 100%)
 $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,191,234) 100%)
 
-//рейтинг товара
-.product-raiting
-    margin-bottom: 10px
-    .product-raiting__item 
-        margin: 2.5px
-    .full-star
-        color: #fac916
-        font-size: 18px
-    .clear-star
-        color: #e3e3e3
-        font-size: 18px
 
 #common-home
     flex-direction: column
@@ -131,88 +120,3 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
     background: #fbfbfb
     width: 100%
     padding: 40px 0
-
-//Футтер
-.main-footer
-    background: #f6f6f8
-    padding: 85px 0
-    +bp(tb)
-        padding: 65px 30px
-    +bp(bm)
-        padding: 65px 0
-    .footer-item
-        p
-            font-size: 20px
-            margin-bottom: 27.5px
-        ul
-            -webkit-columns: 2
-            -moz-columns: 2
-            columns: 2
-            padding-left: 0
-            +bp(tb)
-                columns: 1
-            li
-                list-style: none
-                padding: 12.5px 0
-                min-width: 120px
-                list-style-position: inside
-                -webkit-column-break-inside: avoid
-                page-break-inside: avoid
-                break-inside: avoid
-                margin-right: 60px
-                +bp(tb)
-                    margin-right: 0
-                a
-                    color: $textColor
-                i
-                    margin-right: 20px
-    .footer-phone
-        margin: 40px 0
-        a
-            font-size: 27px
-            color: $textColor
-            font-weight: 300
-            +bp(mb)
-                font-size: 22px
-            img
-                margin-right: 25px
-        span
-            padding-left: 69px
-    .footer-social
-        display: flex
-        padding-left: 69px
-        .footer-social__item
-            width: 37px
-            height: 37px
-            border: 1px solid #dddddd
-            border-radius: 3px
-            color: $textColor
-            margin-right: 12px
-            cursor: pointer
-            &:hover
-                border: 1px solid #0259a9
-.main-footer__underline
-    background: #f1f1f2
-    height: 75px
-    box-shadow: 0 -2px 5px 0px lightgray
-    +bp(tb)
-        padding: 0 30px
-    +bp(mb)
-        margin: 0
-        height: auto
-        padding: 0 15px
-    .underline
-        +bp(mb)
-            flex-wrap: wrap
-            justify-content: center
-        .underline-item
-            height: 75px
-            p
-                font-size: 16px
-                font-weight: 300
-                color: $textColor
-            a
-                margin-right: 20px
-                color: $textColor
-                i
-                    font-size: 40px

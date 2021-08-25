@@ -1,0 +1,399 @@
+@import "vars"
+
+$textColor: #a7a7a7
+$linkColor: #626060
+$priceColor: #0259a9
+$button-gradient-moz: -moz-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,191,234) 100%)
+$button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,191,234) 100%)
+
+#product-category
+    flex-direction: column
+    align-items: center
+
+.category
+    order: 1
+    flex: 1 1 calc(75% - 15px)
+    margin-right: 15px
+    +bp(tb)
+        width: 100%
+
+        
+.modules
+    order: 1
+    flex: 1 1 calc(25% - 15px)
+    margin-left: 15px
+    border: 1px solid #dfdfdf
+    transition: 0.4s ease-out
+    background: white
+    flex-direction: column
+    +bp(tb)
+        position: absolute
+        min-width: 200px
+        left: -300px
+        top: 0
+        bottom: 0
+    .filter-module
+        +bp(tb)
+            padding: 20px
+        .filter-module__header
+            margin: 35px 0
+            .filter-module__header-title
+                font-size: 20px
+                font-weight: bold
+                flex: 1 1 50%
+            .filter-module__header-close
+                color: #505050
+                flex: 1 1 50%
+                font-size: 20px
+                font-weight: bold
+        .filter-module__content
+            flex: 1 1 100%
+
+.open-filter
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    margin: 0 auto
+    z-index: 9999
+    animation: filter-open 0.4s ease-in-out
+
+@keyframes filter-open
+    0%
+        right: 50%
+    100%
+        right: 0
+
+
+//Сортировка
+.category-sort
+    height: 64px
+    padding-left: 40px
+    padding-right: 24px
+    border: 1px solid #dfdfdf
+    border-radius: 6px
+    margin-bottom: 30px
+    position: relative
+    +bp(mb)
+        padding-left: 15px
+    .category-sort__title
+        font-size: 16px
+        color: #989898
+        margin-right: 20px
+    .category-sort__list
+        list-style: none
+        position: relative
+        +bp(mb)
+            flex-direction: column
+        .category-sort__list-item
+            margin-right: 20px
+            +bp(mb)
+                display: none
+                margin-right: 5px
+            a
+                font-size: 16px
+                color: #989898
+        .category-sort__list-item__active 
+            +bp(mb)
+                display: block !important
+            a
+                color: #3f423e
+                text-decoration: underline
+        .category-sort__arrow
+            position: absolute
+            right: -10px
+            +bp(mb)
+                display: block !important
+            i
+                font-size: 12px
+
+    .category-sort__filter
+        order: 2
+        margin-left: auto
+        i
+            font-size: 18px
+            color: $priceColor
+    .category-sort__quanity
+        order: 3
+        margin-left: auto
+        +bp(tb)
+            margin-left: 25px
+        i
+            color: #dfdfdf
+            font-size: 20px
+        .category-sort__quanity-asc
+            margin-right: 10px
+        .category-sort__quanity-active
+            i
+                color: #252924
+    .category-sort__list-active
+        position: absolute
+        left: 40%
+        bottom: -35%
+        z-index: 9999
+        max-width: 110px
+        min-width: 80px
+        border: 1px solid #a7a7a7
+        background: white
+        padding: 5px 15px 10px 5px
+        border-radius: 5px
+        .category-sort__list-item
+            display: block
+        .category-sort__arrow
+            right: 5px
+            
+
+
+//Категории продуктов
+.category-product
+    flex-wrap: wrap
+    margin: -15px
+    .product-layout
+        position: relative
+        width: calc(100% / 3 - 30px)
+        position: relative
+        margin: 0 15px
+        margin-bottom: 30px
+        +bp(tb)
+            padding-bottom: 0
+            width: calc(100% / 2 - 30px)
+        +bp(mb)
+            width: calc(100% - 30px)
+        .product-thumb
+            flex-direction: column
+            border: 1px solid rgb(223, 223, 223)
+            border-radius: 6px
+            min-height: 510px
+            .product-sticker
+                flex-direction: column
+                position: absolute
+                left: 12px
+                top: 12px
+                span
+                    margin-bottom: 10px
+            .product-image
+                margin-top: 45px
+                width: 200px
+                height: 200px
+                img
+                    max-width: 100%
+                    width: auto
+                    height: auto
+            .product-title
+                margin: 35px 10px 10px
+                font-size: 18px
+                a
+                    color: #626060
+                    text-align: center
+            .product-option
+                min-height: 50px
+                min-width: 175px
+                margin-bottom: 10px
+                border: 1px solid #e5e5e5
+                border-radius: 5px
+                label
+                    margin: 0 6px
+                [type=radio]
+                    position: absolute
+                    opacity: 0
+                    width: 0
+                    height: 0
+                    transition: 0.2s ease-out
+                    border: 2px solid transparent
+                [type=radio] + img
+                    cursor: pointer
+                [type=radio]
+                    &:checked + img
+                        border: 2px solid #0259a9
+                        border-radius: 50%
+                        transition: 0.2s ease-in
+            .product-price
+                font-size: 21px
+                min-height: 60px
+                flex-direction: column
+                .product-price__old
+                    color: #686868
+                    text-decoration: line-through
+                .product-price__new
+                    margin: 5px 0
+                    color: $priceColor
+            .product-hover
+                display: flex
+                flex-direction: column
+                align-items: end
+                .product-raiting
+                    margin: 0 auto
+                .product-attribute
+                    display: none
+                    p
+                        font-size: 18px
+                        color: #373737
+                        font-weight: 600
+                        margin-bottom: 10px
+                        padding-left: 20px
+                    ul
+                        padding-left: 40px
+                        li
+                            margin-bottom: 6px
+                            color: black
+                            span
+                                color: #626060
+                .product-raiting 
+                    display: none
+                .product-button
+                    margin: 20px 0
+                    .prodcut-button__basket
+                        width: 150px
+                        height: 52px
+                        font-size: 17px
+                        color: white
+                        background: $button-gradient-moz
+                        background: $button-gradient-kit
+                        border-radius: 5px
+                    .prodcut-button__wishlist,
+                    .prodcut-button__compare
+                        margin-left: 15px
+                        font-size: 24px
+                        color: #717375
+            &:hover
+                position: absolute
+                top: 0
+                background-color: rgb(255, 255, 255)
+                box-shadow: 0px 2px 46px 0px rgba(0, 0, 0, 0.09)
+                transition: .1s ease-in
+                z-index: 1000
+                +bp(tb)
+                    position: relative
+                +bp(mb)
+                    position: relative
+                .product-attribute
+                    display: block
+                .product-raiting
+                    display: flex
+                .product-button
+                    padding: 0 15px
+            +bp(tb)
+                background-color: rgb(255, 255, 255)
+                box-shadow: 0px 2px 46px 0px rgba(0, 0, 0, 0.03)
+                .product-hover
+                    display: block
+
+//Пагинация категорий
+.category-pagination
+    height: 60px
+    border: 1px solid #dfdfdf
+    margin-top: 30px
+    border-radius: 6px
+    justify-content: space-between
+    align-items: center
+    .category-pagination__prev
+        margin-left: 24px
+    .category-pagination__next
+        margin-right: 24px
+    .category-pagination__list-item
+        margin-right: 15px
+        a
+            color: $textColor
+            font-size: 15px
+    .category-pagination__list-dodet
+        color: $textColor
+        margin-right: 15px
+    .list-item__active
+        background: $button-gradient-moz
+        background: $button-gradient-kit
+        height: 33px
+        width: 33px
+        border-radius: 50%
+        display: flex
+        justify-content: center
+        align-items: center
+        a
+            color: white
+    i
+        font-size: 18px
+        color: #a7a7a7
+
+
+
+//Модуль рекомендаций для категорий
+.rec-module
+    margin-top: 85px
+    padding-bottom: 160px
+    flex-direction: column
+    position: relative
+    .slick-prev
+        top: -140px
+        right: 25px
+        position: absolute
+        i
+            font-size: 17px
+            color: #c4c4c4
+            &:hover
+                color: #0259a9
+    .slick-next
+        top: -140px
+        right: 0px
+        position: absolute
+        i
+            font-size: 18px
+            color: #484848
+            &:hover
+                color: #0259a9
+    .slick-dots
+        display: flex
+        justify-content: center
+        li
+            list-style: none
+            height: 22px
+            width: 22px
+            display: flex
+            justify-content: center
+            align-items: center
+            border-radius: 11px
+            border: 1px solid #a7a7a7
+            margin-left: 8px
+            button
+                padding: 0 
+                margin: 0
+                display: flex
+                justify-content: center
+                align-items: center
+            i
+                font-size: 10px
+                color: #a7a7a7
+        .slick-active
+            border: 1px solid #0259a9
+            i
+                
+                color: #0259a9
+                
+    .rec-module__title
+        font-size: 32px
+        color: #252924
+        font-weight: bold
+        span
+            font-weight: 300
+    .rec-module__line
+        background: #ebebeb
+        width: 100%
+        height: 2px
+        margin-top: 30px
+        border: 0
+        margin-bottom: 80px
+    .rec-module__wrapper
+        flex-wrap: wrap
+        .rec-module__wrapper-product
+            flex: 1 1 calc(100% / 4)
+        .rec-product__card
+            flex-direction: column
+            .rec-product__card-img
+                margin-bottom: 60px
+            .rec-product__card-link
+                text-align: center
+                margin-bottom: 10px
+                a
+                    color: $linkColor
+            .rec-product__card-price
+                color: $priceColor
+                font-size: 21px
+                margin-bottom:  30px

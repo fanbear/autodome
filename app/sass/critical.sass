@@ -9,6 +9,7 @@ span
 	margin: 0
 	padding: 0
 	font-family: 'Roboto', sans-serif
+	text-decoration: none
 button
 	border: 0
 	background: transparent
@@ -20,7 +21,6 @@ input
 ul
 	padding: 0
 	margin: 0
-
 
 //Переменные для быстрого изменения стилей
 $linkColor: #0259a9
@@ -62,6 +62,12 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 .align-center
 	display: flex
 	align-items: center
+.hide-desktop
+	display: none !important
+	+bp(tb)
+		display: flex !important
+	+bp(mb)
+		display: flex !important
 .hide-tablet
 	+bp(tb)
 		display: none !important
@@ -75,7 +81,17 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 .flex
 	display: flex
 
-
+//рейтинг товара
+.product-raiting
+	margin-bottom: 10px
+	.product-raiting__item
+		margin: 2.5px
+	.full-star
+		color: #fac916
+		font-size: 18px
+	.clear-star
+		color: #e3e3e3
+		font-size: 18px
 
 // Верхная часть шапки
 .top__line-bg
@@ -110,7 +126,7 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 		p
 			margin-bottom: 4px
 			a
-			
+
 				color: #a7a7a7
 				text-decoration: none
 			span
@@ -135,7 +151,7 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 		.top__line-button__open
 			align-self: flex-start
 			padding: 10px 10px
-			cursor: pointer	
+			cursor: pointer
 		.top__line-text__hover
 			position: absolute
 			top: 64px
@@ -148,7 +164,6 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 		display: flex
 		align-items: center
 		flex: 0 0 280px
-
 
 //Шапка сайта
 .header
@@ -282,3 +297,102 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 			padding: 0 15px
 			font-size: 30px
 //------------------------
+
+//Меню сайта
+.menu
+	height: 70px
+	background: #3f4042
+	+bp(tb)
+		display: none
+	+bp(mb)
+		display: none
+	ul
+		list-style: none
+	nav.menu-nav
+		min-width: 270px
+		height: 70px
+		background: $button-gradient-moz
+		background: $button-gradient-kit
+		position: relative
+		.menu-nav__title
+			justify-content: space-between
+			width: 100%
+			div
+				font-size: 20px
+				color: white
+				padding: 25px 21px
+				i
+					cursor: pointer
+					transition: 0.3s
+					&:hover
+						color: #3f4042
+						transition: 0.3s
+		.menu-nav__list
+			display: none
+			li
+				padding: 15px 20px
+				a
+					color: #444444
+					font-weight: 600
+				i
+					font-size: 12px
+					&:hover
+						color: #0259a9
+						cursor: pointer
+			.submenu-open
+				background: #dddddd
+			ul
+				display: none
+				position: absolute
+				right: - 270px
+				background: white
+				min-width: 270px
+				top: 0
+				transition: 0.6s ease-out
+			ul.submenu-active
+				display: block
+				animation: menu-slick 0.6s ease-in
+				li
+					a
+						font-size: 14px
+						color: #6c6c6c
+			@keyframes menu-slick
+				0%
+					right: 0
+				100%
+					right: -270px
+
+		.menu-nav__list-active
+			display: block
+			position: absolute
+			top: 70px
+			background: #FFFFFF
+			z-index: 9999
+			width: 100%
+
+//Хлебные крошки
+.breadcrumb
+	margin: 40px 0
+	flex-wrap: wrap
+	li
+		list-style: none
+		margin-left: 28px
+		font-size: 16px
+		color: #989898
+		+bp(tb)
+			margin-left: 10px
+		+bp(mb)
+			margin-left: 10px
+		a
+			color: #989898
+		i
+			margin-left: 28px
+			+bp(tb)
+				margin-left: 10px
+			+bp(mb)
+				margin-left: 10px
+		&:first-child
+			margin-left: 0
+		+bp(tb)
+			&:last-child
+				margin-left: 0
