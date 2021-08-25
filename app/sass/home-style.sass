@@ -6,7 +6,6 @@ $priceColor: #0259a9
 $button-gradient-moz: -moz-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,191,234) 100%)
 $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,191,234) 100%)
 
-
 #common-home
     flex-direction: column
     align-items: center
@@ -23,12 +22,13 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
         flex: 0 0 370px
         padding-bottom: 115px
         position: relative
-        margin: 0 7.5px
+        margin: 30px 7.5px
         +bp(tb)
             padding-bottom: 0
+
         .product-thumb
             flex-direction: column
-            margin-top: 30px
+            transition: border-radius 0.4s, box-shadow .4s
             .product-image
                 img
                     max-width: 250px
@@ -106,12 +106,13 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
                 top: 0
                 background-color: rgb(255, 255, 255)
                 box-shadow: 0px 2px 46px 0px rgba(0, 0, 0, 0.09)
-                transition: .1s ease-in
+                border-radius: 10px
                 .product-hover
                     display: block
             +bp(tb)
                 background-color: rgb(255, 255, 255)
                 box-shadow: 0px 2px 46px 0px rgba(0, 0, 0, 0.03)
+
                 .product-hover
                     display: block
 

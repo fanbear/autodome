@@ -17,7 +17,6 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
     +bp(tb)
         width: 100%
 
-        
 .modules
     order: 1
     flex: 1 1 calc(25% - 15px)
@@ -57,15 +56,14 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
     margin: 0 auto
     z-index: 9999
     animation: filter-open 0.4s ease-in-out
-
 @keyframes filter-open
     0%
         right: 50%
     100%
         right: 0
 
-
 //Сортировка
+//----------------------------------------------------
 .category-sort
     height: 64px
     padding-left: 40px
@@ -93,7 +91,7 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
             a
                 font-size: 16px
                 color: #989898
-        .category-sort__list-item__active 
+        .category-sort__list-item__active
             +bp(mb)
                 display: block !important
             a
@@ -141,10 +139,9 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
             display: block
         .category-sort__arrow
             right: 5px
-            
-
 
 //Категории продуктов
+//----------------------------------------------------
 .category-product
     flex-wrap: wrap
     margin: -15px
@@ -238,7 +235,7 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
                             color: black
                             span
                                 color: #626060
-                .product-raiting 
+                .product-raiting
                     display: none
                 .product-button
                     margin: 20px 0
@@ -279,6 +276,7 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
                     display: block
 
 //Пагинация категорий
+//---------------------------------------------------
 .category-pagination
     height: 60px
     border: 1px solid #dfdfdf
@@ -313,9 +311,8 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
         font-size: 18px
         color: #a7a7a7
 
-
-
 //Модуль рекомендаций для категорий
+//---------------------------------------------------
 .rec-module
     margin-top: 85px
     padding-bottom: 160px
@@ -353,7 +350,7 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
             border: 1px solid #a7a7a7
             margin-left: 8px
             button
-                padding: 0 
+                padding: 0
                 margin: 0
                 display: flex
                 justify-content: center
@@ -364,9 +361,9 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
         .slick-active
             border: 1px solid #0259a9
             i
-                
+
                 color: #0259a9
-                
+
     .rec-module__title
         font-size: 32px
         color: #252924
@@ -396,4 +393,4 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
             .rec-product__card-price
                 color: $priceColor
                 font-size: 21px
-                margin-bottom:  30px
+                margin-bottom: 30px

@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Шапка сайта
     const searchList = document.querySelector('.header-search__category .dropdown-menu');
     const searchBtn = document.querySelector('.header-search__open-category');
+    const basketBtn = document.querySelector('.header-shop__basket');
+    const basketPopUpWrapper = document.querySelector('.header-shop__basket-wrapper');
 
     //Табы
     const tabsHeader = document.querySelectorAll('.product-tabs__header-title');
@@ -124,20 +126,37 @@ document.addEventListener('DOMContentLoaded', function () {
     //************************* */
 
     //Открытие адерса в шапке
+    //--------------------------------------------------------------
     if (addressBtn) {
         addressBtn.addEventListener('click', function () {
             toggleSelector(address, addressBtn)
         })
     }
 
+
+    //Открытие всплывающей корзины
+    //--------------------------------------------------------------
+    if (basketBtn) {
+        basketBtn.addEventListener('click', function (e) {
+
+            if (e.target.nodeName == 'I') {
+                basketPopUpWrapper.classList.toggle('basket-wrapper__active');
+            }
+        })
+    }
+
+
     //Открытие категорий в поиске
+    //--------------------------------------------------------------
     if (searchBtn) {
         searchBtn.addEventListener('click', function () {
             toggleSelector(searchList, searchBtn)
         })
     }
 
+
     //Открытие фильтра для моб и пк версии
+    //--------------------------------------------------------------
     if (filterBtnOpen) {
         filterBtnOpen.addEventListener('click', function () {
             openHideElement(filter)('open-filter');
@@ -149,7 +168,9 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 
+
     //Сортировка в категориях
+    //-------------------------------------------------------------
     if (window.innerWidth < 478 && sortBtn) {
         sortBtn.addEventListener('click', function () {
             sortList.classList.toggle('category-sort__list-active');
@@ -158,7 +179,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
+
     //Модуль табов  на главной
+    //-------------------------------------------------------------
     if (tabsHeader) {
 
         // Удаление класса из псевдомасива
