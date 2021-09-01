@@ -20,46 +20,56 @@ function serve() {
 
 function critical() {
 	return src('app/sass/critical.sass') // Выбираем источник: "app/sass/main.sass" или "app/less/main.less"
-	.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
-	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
-	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) // Минифицируем стили
-	.pipe(dest('build/css/')) // Выгрузим результат в папку "build/css/"
-	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
+		.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
+		.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
+		.pipe(cleancss({ level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ })) // Минифицируем стили
+		.pipe(dest('build/css/')) // Выгрузим результат в папку "build/css/"
+		.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
+}
+
+function product() {
+	return src('app/sass/product.sass')
+		.pipe(eval(preprocessor)())
+		.pipe(autoprefixer({ overrideBrowserslist: ['last 10 version'], grid: true }))
+		.pipe(cleancss({ level: { 1: { specialComments: 0 } } }))
+		.pipe(dest('build/css/'))
+		.pipe(browserSync.stream())
 }
 
 function homeStyles() {
 	return src('app/sass/home-style.sass') // Выбираем источник: "app/sass/main.sass" или "app/less/main.less"
-	.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
-	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
-	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) // Минифицируем стили
-	.pipe(dest('build/css/')) // Выгрузим результат в папку "build/css/"
-	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
+		.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
+		.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
+		.pipe(cleancss({ level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ })) // Минифицируем стили
+		.pipe(dest('build/css/')) // Выгрузим результат в папку "build/css/"
+		.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
+
 function footer() {
 	return src('app/sass/footer.sass') // Выбираем источник: "app/sass/main.sass" или "app/less/main.less"
-	.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
-	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
-	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) // Минифицируем стили
-	.pipe(dest('build/css/')) // Выгрузим результат в папку "build/css/"
-	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
+		.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
+		.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
+		.pipe(cleancss({ level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ })) // Минифицируем стили
+		.pipe(dest('build/css/')) // Выгрузим результат в папку "build/css/"
+		.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
 
 function modules() {
 	return src('app/sass/modules.sass') // Выбираем источник: "app/sass/main.sass" или "app/less/main.less"
-	.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
-	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
-	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) // Минифицируем стили
-	.pipe(dest('build/css/')) // Выгрузим результат в папку "build/css/"
-	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
+		.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
+		.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
+		.pipe(cleancss({ level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ })) // Минифицируем стили
+		.pipe(dest('build/css/')) // Выгрузим результат в папку "build/css/"
+		.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
 
 function category() {
 	return src('app/sass/category.sass') // Выбираем источник: "app/sass/main.sass" или "app/less/main.less"
-	.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
-	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
-	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) // Минифицируем стили
-	.pipe(dest('build/css/')) // Выгрузим результат в папку "build/css/"
-	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
+		.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
+		.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
+		.pipe(cleancss({ level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ })) // Минифицируем стили
+		.pipe(dest('build/css/')) // Выгрузим результат в папку "build/css/"
+		.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
 
 function startwatch() {
@@ -70,6 +80,7 @@ function startwatch() {
 	watch('app/sass/modules.sass', modules);
 	watch('app/sass/category.sass', category);
 	watch('app/sass/footer.sass', footer);
+	watch('app/sass/product.sass', product);
 
 	// Мониторим файлы HTML на изменения
 	watch('app/**/*.html').on('change', browserSync.reload);
@@ -85,6 +96,7 @@ exports.critical = critical;
 exports.footer = footer;
 exports.module = modules;
 exports.category = category;
+exports.product = product;
 
 // Экспортируем дефолтный таск с нужным набором функций
 exports.default = parallel(serve, startwatch);
