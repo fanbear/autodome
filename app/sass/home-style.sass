@@ -107,8 +107,14 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
                 background-color: rgb(255, 255, 255)
                 box-shadow: 0px 2px 46px 0px rgba(0, 0, 0, 0.09)
                 border-radius: 10px
+                animation: product-animated 0.4s ease-in
                 .product-hover
                     display: block
+            @keyframes product-animated
+                0%
+                    top: -20px
+                100%
+                    top: 0
             +bp(tb)
                 background-color: rgb(255, 255, 255)
                 box-shadow: 0px 2px 46px 0px rgba(0, 0, 0, 0.03)

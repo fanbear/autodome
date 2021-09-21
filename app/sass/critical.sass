@@ -171,13 +171,20 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 		flex: 0 0 280px
 
 //Шапка сайта
-//-----------------------------------------------------------
+//---------------------------------------------------------
 .header
 	display: flex
 	height: 122px
 	align-items: center
 	+bp(tb)
 		flex-wrap: wrap
+		width: 100vh
+		height: auto
+		padding-bottom: 25px
+	+bp(mb)
+		width: 100vh
+		height: auto
+		padding-bottom: 10px
 	.header-logotype
 		flex: 0 0 268px
 		+bp(tb)
@@ -197,7 +204,7 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 		+bp(tb)
 			order: 1
 			width: 100%
-			padding-right: 30px
+			padding: 0 15px
 			margin-top: 30px
 		.header-search__form
 			position: relative
@@ -304,27 +311,63 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 			font-size: 30px
 
 //Меню сайта
-	//-------------------------------------------------------
+//---------------------------------------------------------
 .menu
 	height: 70px
 	background: #3f4042
-	+bp(tb)
-		display: none
 	+bp(mb)
+		position: absolute
+		z-index: 9999
+		left: 0
+		right: 0
+		top: 0
+		bottom: 0
+		height: auto
 		display: none
-
+		background: white
+	+bp(tb)
+		position: absolute
+		z-index: 9999
+		left: 0
+		right: 0
+		top: 0
+		bottom: 0
+		height: auto
+		display: none
+		background: white
+	.menu-mobile__no-margin
+		+bp(mb)
+			width: 100%
+		+bp(tb)
+			width: 100%
 	nav.menu-nav
-		min-width: 270px
+		min-width: 300px
 		height: 70px
 		background: $button-gradient-moz
 		background: $button-gradient-kit
 		position: relative
+		+bp(tb)
+			display: none
+			width: 100%
+			background: white
+		+bp(mb)
+			display: none
+			width: 100%
+			background: white
 		ul
 			list-style: none
 			box-shadow: 0 6px 11px 0 rgb(0 0 0 / 28%)
+			+bp(mb)
+				box-shadow: none
+			+bp(tb)
+				box-shadow: none
 		.menu-nav__title
 			justify-content: space-between
 			width: 100%
+			+bp(mb)
+				display: none
+			+bp(tb)
+				display: none
 			div
 				font-size: 20px
 				color: white
@@ -352,11 +395,19 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 			ul
 				display: none
 				position: absolute
-				right: - 270px
+				left: 300px
 				background: white
-				min-width: 270px
+				min-width: 300px
 				top: 0
 				transition: 0.6s ease-out
+				+bp(mb)
+					position: relative
+					left: 0
+					top: 10px
+				+bp(tb)
+					position: relative
+					left: 0
+					top: 10px
 			ul.submenu-active
 				display: block
 				animation: menu-slick 0.6s ease-in
@@ -366,9 +417,9 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 						color: #6c6c6c
 			@keyframes menu-slick
 				0%
-					right: 0
+					transform: scale(0)
 				100%
-					right: -270px
+					transform: scale(1)
 
 		.menu-nav__list-active
 			display: block
@@ -377,12 +428,38 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 			background: #FFFFFF
 			z-index: 9999
 			width: 100%
+			animation: menu-open-scale 0.4s ease-in
+			+bp(mb)
+				position: inherit
+				top: 30px
+			+bp(tb)
+				position: inherit
+				top: 30px
+
+			@keyframes menu-open-scale
+				0%
+					transform: scale(0)
+				100%
+					transform: scale(1)
+		.nav-menu__close-mobile
+			width: 50px
+			height: 50px
+			border-radius: 25px
+			background: #0259a9
+			color: white
+			position: absolute
+			top: -55px
+			left: calc(50% - 25px)
+			i
+				margin-top: 18px
 	.menu-list
 		flex: 1 1 auto
+		+bp(mb)
+			display: none
 		ul
 			li
 				position: relative
-				flex: 1 0 calc(100% / 5)
+				flex: 1 0 auto
 				&::after
 					content: ''
 					position: absolute
@@ -390,14 +467,21 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 					width: 1px
 					height: 27px
 					background-color: #656668
+				&:last-child
+					&::after
+						display: none
 				a
 					color: white
 					font-size: 18px
 					font-weight: 400
+					+bp(tb)
+						font-size: 14px
+						padding: 0 25px
 					&:hover
 						text-decoration: underline
+
 //Хлебные крошки
-//-----------------------------------------------------------
+//----------------------------------------------------------
 .breadcrumb
 	margin: 40px 0
 	flex-wrap: wrap
@@ -423,6 +507,191 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 		+bp(tb)
 			&:last-child
 				margin-left: 0
+
+//Слайдер на главной 
+//----------------------------------------------------------
+.home-banner
+	width: 100%
+	background: #f7f7f7
+	min-height: 580px
+	+bp(tb)
+		min-height: 450px
+	+bp(mb)
+		height: auto
+		padding-bottom: 90px
+		padding-top: 20px
+.banner-styles
+	.banner-item
+		display: flex !important
+		+bp(mb)
+			flex-wrap: wrap
+	.banner-item__action
+		margin-left: 350px
+		+bp(tb)
+			margin: 0
+		+bp(mb)
+			margin: 0
+			order: 1
+			display: flex
+			flex-direction: column
+			align-items: center
+	.banner-item__title
+		font-size: 50px
+		color: #252924
+		font-weight: 300
+		+bp(tb)
+			font-size: 40px
+		+bp(mb)
+			text-align: center
+	.banner-item__text
+		margin-top: 30px
+		font-size: 20px
+		color: #252924
+		font-weight: 300
+		+bp(mb)
+			text-align: center
+	.banner-item__btn
+		margin-top: 41px
+		a
+			width: 192px
+			height: 52px
+			border: 2px solid #0259a9
+			background-color: rgba(2, 89, 169, 0.051)
+			border-radius: 6px
+			color: #0259a9
+			font-size: 17px
+			font-weight: 500
+			.banner-item__btn-line
+				width: 2px
+				height: 25px
+				padding: 0
+				margin: 0 10px
+				border: 0
+				background: #0259a9
+	.banner-item__img
+		+bp(mb)
+			order: -1
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 80%
+		img
+			height: 400px
+			width: auto
+			+bp(tb)
+				height: 300px
+	.slick-dots
+		display: flex
+		position: absolute
+		bottom: 0
+		left: 350px
+		+bp(tb)
+			left: 0
+			bottom: -50px
+		+bp(mb)
+			left: calc(50% - 57px)
+		li
+			list-style: none
+			height: 24px
+			width: 24px
+			display: flex
+			justify-content: center
+			align-items: center
+			border-radius: 12px
+			border: 1px solid #a7a7a7
+			margin-right: 12px
+			button
+				padding: 0
+				margin: 0
+				display: flex
+				justify-content: center
+				align-items: center
+			i
+				font-size: 10px
+				color: #a7a7a7
+
+		.slick-active
+			border: 1px solid #0259a9
+			i
+				color: #0259a9
+
+//Слайдер на главной второстепенный
+.content-banner
+	.banner-styles
+		position: inherit
+		.banner-item__action
+			margin: 0
+			flex: 1 1 40%
+		.banner-item__img
+			flex: 1 1 60%
+			position: relative
+			img
+				height: 400px
+				+bp(tb)
+					height: 300px
+		.slick-dots
+			margin-top: 40px
+			position: inherit
+			display: flex
+			justify-content: center
+			align-items: center
+		.banner-item__title
+			font-size: 32px
+			font-weight: 500
+		.banner-item__text
+			color: #6b6b6b
+		.banner-item__discont
+			background: #ec3910
+			color: white
+			font-size: 27px
+			line-height: 47px
+			width: 110px
+			height: 110px
+			border-radius: 55px
+			position: absolute
+			top: 23px
+			right: 92px
+			z-index: 1000
+			+bp(tb)
+				left: 0
+			+bp(mb)
+				width: 80px
+				height: 80px
+				border-radius: 40px
+				font-size: 24px
+				right: 0px
+				left: auto
+
+//Лучшие товары точки
+//----------------------------------------------------------
+.bestseller
+	.slick-dots
+		display: flex
+		justify-content: center
+		li
+			list-style: none
+			height: 24px
+			width: 24px
+			display: flex
+			justify-content: center
+			align-items: center
+			border-radius: 12px
+			border: 1px solid #a7a7a7
+			margin-right: 12px
+			button
+				padding: 0
+				margin: 0
+				display: flex
+				justify-content: center
+				align-items: center
+			i
+				font-size: 10px
+				color: #a7a7a7
+
+		.slick-active
+			border: 1px solid #0259a9
+			i
+				color: #0259a9
 
 //Всплывающая корзина
 //-----------------------------------------------------------

@@ -13,12 +13,50 @@ $button-gradient-ms: -ms-linear-gradient( -90deg, rgb(77,186,230) 0%, rgb(2,90,1
     align-items: center
 
 .product
+    +bp(tb)
+        flex-wrap: wrap
+        flex-direction: column
+    .product__main-category
+        font-size: 18px
+        line-height: 32px
+        color: #a2a2a2
+    .product__h1
+        font-size: 32px
+        line-height: 45px
+        color: #2a2a2a
+        font-weight: 600
+        margin-bottom: 21px
+    .product-data__raiting
+        justify-content: flex-start
+        .product-raiting
+            margin-right: 20px
+            margin-bottom: 0
+        .product-data__raiting-digit
+            background-image: url('../img/rating-badge.png')
+            color: white
+            width: 62px
+            height: 29px
+            font-size: 15px
+            span
+                padding-left: 15px
     .product-thumb
         padding: 0 30px
         flex: 1 1 446px
+        +bp(tb)
+            padding: 0
+        +bp(tb)
+            width: 100%
+            justify-content: center
+            display: flex
+            flex-direction: column
         .product-thumb__main-img
             margin: 100px 0
+            +bp(tb)
+                margin: 0 0 60px 0
         .product-thumb__aditionaly-img
+            +bp(tb)
+                max-width: 420px
+                margin: 0 auto
             ul
                 padding: 0
                 margin: 0
@@ -59,29 +97,6 @@ $button-gradient-ms: -ms-linear-gradient( -90deg, rgb(77,186,230) 0%, rgb(2,90,1
     .product-data
         padding: 0 25px
         flex: 1 1 calc(100% - 446px)
-        .product-data__main-category
-            font-size: 18px
-            line-height: 32px
-            color: #a2a2a2
-        .product-data__h1
-            font-size: 32px
-            line-height: 45px
-            color: #2a2a2a
-            font-weight: 600
-            margin-bottom: 21px
-        .product-data__raiting
-            justify-content: flex-start
-            .product-raiting
-                margin-right: 20px
-                margin-bottom: 0
-            .product-data__raiting-digit
-                background-image: url('../img/rating-badge.png')
-                color: white
-                width: 62px
-                height: 29px
-                font-size: 15px
-                span
-                    padding-left: 15px
         .product-data__options
             margin-top: 25px
             .product-data__options-radio
@@ -329,6 +344,7 @@ $button-gradient-ms: -ms-linear-gradient( -90deg, rgb(77,186,230) 0%, rgb(2,90,1
                 font-weight: 600
         .body-item__attribute
             width: 100%
+            padding-left: 15px
             .body-item__attribute-title
                 margin-top: 15px
                 color: #6b6b6b
