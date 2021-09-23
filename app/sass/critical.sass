@@ -506,7 +506,7 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 			margin-left: 0
 		+bp(tb)
 			&:last-child
-				margin-left: 0
+				margin-left: 10px
 
 //Слайдер на главной 
 //----------------------------------------------------------
@@ -708,6 +708,9 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 	background-color: rgb(255, 255, 255)
 	box-shadow: 0px 6px 11px 0px rgba(0, 0, 0, 0.28)
 	z-index: 1000
+	+bp(mb)
+		width: 350px
+		right: -25px
 	.basket-title
 		font-size: 21px
 		line-height: 48px
@@ -716,6 +719,9 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 	.basket-item
 		padding: 10px 25px 10px 25px
 		border-bottom: 2px solid #dfdfdf
+		+bp(mb)
+			flex-direction: column
+			align-items: center
 		.basket-item__thumbs
 			margin-right: 29px
 		.basket-item__price
@@ -724,6 +730,10 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 			line-height: 48px
 			font-weight: 600
 			color: #252924
+			+bp(mb)
+				justify-content: center
+				display: flex
+				margin-left: 0
 		.basket-item__info-head
 			margin-bottom: 12px
 			a
@@ -732,6 +742,9 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 				color: #626060
 
 		.basket-item__info-body
+			+bp(mb)
+				display: flex
+				justify-content: space-evenly
 			span
 				font-size: 15px
 				color: #626060
@@ -739,16 +752,23 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 					margin-left: 70px
 	.basket-btn
 		margin: 30px 25px
-
+		+bp(mb)
+			display: flex
+			justify-content: center
+			align-items: center
+			flex-direction: column
 		a
 			font-size: 18px
 			color: #252924
 			text-decoration: underline
+			+bp(mb)
+				margin: 8px 0
 		span
 			margin-left: auto
 			font-size: 21px
 			color: #2d2d2d
 			margin-right: 16px
+			margin: 8px auto
 		button
 			width: 155px
 			height: 52px

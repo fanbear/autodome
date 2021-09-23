@@ -1936,7 +1936,9 @@
 
         bestSeller.addEventListener('click', function (e) {
             const target = e.target.closest('.product-pop__up-wrapper');
-            target.querySelector('.product-pop__up-text').classList.toggle('product-pop__up-active');
+            if (target) {
+                target.querySelector('.product-pop__up-text').classList.toggle('product-pop__up-active');
+            }
         })
     </script>
     <script>

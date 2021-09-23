@@ -19,19 +19,22 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
 
 .modules
     order: 1
-    flex: 1 1 calc(25% - 15px)
+    flex: 1 1 auto
     margin-left: 15px
-    border: 1px solid #dfdfdf
     transition: 0.4s ease-out
     background: white
+    display: flex
     flex-direction: column
+    justify-content: flex-end
     +bp(tb)
         position: absolute
         min-width: 200px
-        left: -300px
+        left: -400px
         top: 0
         bottom: 0
     .filter-module
+        border: 1px solid #dfdfdf
+        flex: 1 1 auto
         +bp(tb)
             padding: 20px
         .filter-module__header
@@ -47,7 +50,15 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
                 font-weight: bold
         .filter-module__content
             flex: 1 1 100%
-
+    .banner-modules
+        padding-top: 30px
+        padding-bottom: 100px
+        background: white
+        +bp(mb)
+            border-bottom: 1px solid #dfdfdf
+        img
+            width: auto
+            height: 400px
 .open-filter
     left: 0
     right: 0
@@ -217,7 +228,6 @@ $button-gradient-kit: -webkit-linear-gradient( 90deg, rgb(2,89,169) 0%, rgb(81,1
             .product-hover
                 display: flex
                 flex-direction: column
-                align-items: end
                 .product-raiting
                     margin: 0 auto
                 .product-attribute

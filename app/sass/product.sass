@@ -26,6 +26,8 @@ $button-gradient-ms: -ms-linear-gradient( -90deg, rgb(77,186,230) 0%, rgb(2,90,1
         color: #2a2a2a
         font-weight: 600
         margin-bottom: 21px
+        +bp(mb)
+            font-size: 20px
     .product-data__raiting
         justify-content: flex-start
         .product-raiting
@@ -53,6 +55,10 @@ $button-gradient-ms: -ms-linear-gradient( -90deg, rgb(77,186,230) 0%, rgb(2,90,1
             margin: 100px 0
             +bp(tb)
                 margin: 0 0 60px 0
+                img
+                    +bp(mb)
+                        height: 250px
+                        width: auto
         .product-thumb__aditionaly-img
             +bp(tb)
                 max-width: 420px
@@ -93,13 +99,23 @@ $button-gradient-ms: -ms-linear-gradient( -90deg, rgb(77,186,230) 0%, rgb(2,90,1
                         height: 80px
                         width: auto
                         margin: 10px 20px
+                        +bp(mb)
+                            height: 40px
 
     .product-data
         padding: 0 25px
         flex: 1 1 calc(100% - 446px)
+        +bp(mb)
+            padding: 0 15px
+            flex: 1 1 auto
         .product-data__options
             margin-top: 25px
+            +bp(mb)
+                flex-direction: column
+                align-items: flex-start
             .product-data__options-radio
+                +bp(mb)
+                    margin: 5px 0
                 span
                     font-size: 16px
                     margin-right: 20px
@@ -125,8 +141,12 @@ $button-gradient-ms: -ms-linear-gradient( -90deg, rgb(77,186,230) 0%, rgb(2,90,1
                             border-radius: 50%
                             transition: 0.2s ease-in
             .product-data__options-lable
+                +bp(mb)
+                    margin: 5px 0
                 span
                     margin: 0 20px
+                    +bp(mb)
+                        margin-left: 0
                 .options-lable__wrapper
                     label
                         margin: 0 5px
@@ -153,21 +173,34 @@ $button-gradient-ms: -ms-linear-gradient( -90deg, rgb(77,186,230) 0%, rgb(2,90,1
         .product-data__discont-timer
             margin-top: 25px
             margin-bottom: 25px
+            +bp(mb)
+                flex-direction: column
+                align-items: flex-start
             .discont-timer__wrapper
                 border: 1px solid #0259a9
                 border-radius: 3px
                 background: #ebf2f8
                 padding: 12px
+                +bp(mb)
+                    font-size: 18px
                 .timer-wrapper__text
                     font-size: 16px
                     margin-right: 5px
+                    +bp(mb)
+                        font-size: 18px
                 .timer-wrapper__item
                     font-size: 16px
                     font-weight: 600
+                    +bp(mb)
+                        font-size: 18px
             .discont-timer__date
                 margin-left: 12px
                 font-size: 16px
                 color: #2a2a28
+                +bp(mb)
+                    margin-left: 0
+                    margin-top: 10px
+                    font-size: 18px
         .product-data__actions
             .actions-price
                 .actions-price__old
@@ -187,6 +220,8 @@ $button-gradient-ms: -ms-linear-gradient( -90deg, rgb(77,186,230) 0%, rgb(2,90,1
                     color: $priceColor
             .actions-btn
                 margin-left: 40px
+                +bp(mb)
+                    margin-left: 20px
                 .actions-btn__buy
                     height: 54px
                     width: 156px
@@ -205,13 +240,23 @@ $button-gradient-ms: -ms-linear-gradient( -90deg, rgb(77,186,230) 0%, rgb(2,90,1
                     color: $priceColor
                     border: 2px solid $priceColor
                     margin-left: 15px
+                    +bp(mb)
+                        margin-left: 0
+                        margin-top: 10px
+                        width: 155px
             .product-data__actions-list
                 margin-top: 40px
                 margin-bottom: 30px
+                +bp(mb)
+                    flex-direction: column
+                    margin: 10px 0
                 a
                     color: #0259a9
                     margin-right: 25px
                     font-size: 16px
+                    +bp(mb)
+                        font-size: 18px
+                        margin: 5px 0
                     &:hover
                         text-decoration: underline
         .product-data__line
@@ -231,6 +276,8 @@ $button-gradient-ms: -ms-linear-gradient( -90deg, rgb(77,186,230) 0%, rgb(2,90,1
                 div
                     &:nth-child(1n)
                         width: 50%
+                        +bp(mb)
+                            font-size: 12px
                     &:nth-child(2n)
                         width: 25%
 
@@ -384,3 +431,13 @@ $button-gradient-ms: -ms-linear-gradient( -90deg, rgb(77,186,230) 0%, rgb(2,90,1
                 opacity: 0
             100%
                 opacity: 1
+.rec-module
+    +bp(mb)
+        padding-bottom: 40px
+    .rec-module__title
+        +bp(mb)
+            font-size: 22px
+    .slick-prev,
+    .slick-next
+        +bp(mb)
+            top: -130px
