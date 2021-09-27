@@ -1,0 +1,199 @@
+
+.order-tabs__header
+    .tabs__header-item
+        width: calc(100% / 3)
+        flex-direction: column
+        position: relative
+        .circle-wrapper
+            width: 60px
+            height: 60px
+            border-radius: 30px
+            border: 1px solid #ddd
+            .circle
+                width: 44px
+                height: 44px
+                border-radius: 22px
+                background: #ddd
+                i
+                    display: none
+                    color: white
+        .tabs-item__text
+            font-size: 21px
+            color: #2d2d2d
+            margin-top: 26px
+        hr.tabs-item__line
+            width: 70%
+            position: absolute
+            top: 32px
+            left: 65%
+            border: 0
+            margin: 0
+            padding: 0
+            height: 2px
+            background: #ddd
+    .tabs__header-item__active
+        .circle-wrapper
+            border-color: #0259a9
+            .circle
+                background: #0259a9
+                i
+                    display: flex
+                    color: white
+        hr.tabs-item__line
+            background: #0259a9
+        .tabs-item__arrow
+            display: block
+            border-left: 15px solid transparent
+            border-right: 15px solid transparent
+            border-bottom: 15px solid #ddd
+            position: absolute
+            bottom: -50px
+            left: calc(50% - 15px)
+            &::after
+                content: ''
+                border-left: 12px solid transparent
+                border-right: 12px solid transparent
+                border-bottom: 12px solid white
+                position: absolute
+                bottom: -16px
+                right: -12px
+
+.order-tabs__body
+    padding-top: 55px
+    border: 1px solid #ddd
+    border-radius: 6px
+    margin-top: 50px
+    margin-bottom: 160px
+    .tabs__body-item
+        display: none
+        .tabs__body-half
+            margin: 0 30px 15px 30px
+            label
+                flex-direction: column
+                flex: 1 1 auto
+                &:first-child
+                    margin-right: 30px
+
+                span
+                    color: #2d2d2d
+                    font-size: 19px
+                input
+                    margin-top: 20px
+                    border: 1px solid #ddd
+                    border-radius: 6px
+                    padding-left: 15px
+                    height: 50px
+        .tabs__body-full
+            margin: 0 30px 15px 30px
+            label
+                flex-direction: column
+                span
+                    color: #2d2d2d
+                    font-size: 19px
+                input
+                    margin-top: 20px
+                    border: 1px solid #ddd
+                    border-radius: 6px
+                    padding-left: 15px
+                    height: 50px
+                textarea
+                    margin-top: 16px
+                    margin-bottom: 24px
+                    border: 1px solid #ddd
+                    border-radius: 6px
+        .tabs-boby__checkbox
+            margin: 75px 30px 45px 30px
+            input
+                width: 27px
+                height: 27px
+                margin-right: 14px
+            label
+                color: #2d2d2d
+                font-size: 19px
+
+                cursor: pointer
+
+    .tabs__body-item__active
+        display: block
+    .tabs__body-btn
+        justify-content: flex-end
+        margin: 30px 30px 42px 30px
+    button.next-order,
+    button.order-form
+        border-radius: 6px
+        background-image: -moz-linear-gradient( 90deg, rgb(6,95,172) 0%, rgb(80,189,232) 100%)
+        background-image: -webkit-linear-gradient( 90deg, rgb(6,95,172) 0%, rgb(80,189,232) 100%)
+        width: 156px
+        height: 52px
+        color: white
+        font-size: 17px
+
+    .prev-order
+        margin-right: 15px
+        text-decoration: underline
+    .order-danger
+        border: 1px solid #fb364a !important
+    .order-success
+        border: 1px solid #7cbf46 !important
+
+.payment-detail
+    border-bottom: 1px solid #ddd
+    padding: 30px
+    .payment-detail__title
+        font-size: 19px
+        color: #2d2d2d
+    .paument-detail__options
+        flex-direction: column
+        margin-top: 28px
+        label
+            margin: 14px
+            cursor: pointer
+            input
+                width: 27px
+                height: 27px
+                border-radius: 6px
+                margin-right: 15px
+            span
+                color: #2d2d2d
+                font-size: 19px
+.form-wrapper
+    margin-top: 0
+    border: 0
+    .form-action
+        padding: 15px 30px 15px 30px
+        min-height: auto
+        border-bottom: 1px solid #ddd
+        align-items: center
+        .form-action__coupon
+            button
+                right: -40%
+    .form-action__general-summ
+        color: #0259a9
+        font-size: 21px
+        font-weight: 700
+    .middle-summ__action
+        font-size: 19px
+        color: #2d2d2d
+    .form-body__title
+        font-size: 19px
+        color: #2d2d2d
+        margin: 40px 32px 10px 32px
+    .form-action__middle-summ
+        padding: 30px
+        border-bottom: 1px solid #ddd
+.form-wrapper
+    margin: 0
+.form-action__general
+    display: none
+    flex-direction: column
+    justify-content: flex-end
+    align-items: flex-end
+    padding: 30px
+    .form-action__general-delivery
+        font-size: 15px
+        margin-bottom: 15px
+        color: #afafaf
+    .form-action__general-summ
+        color: #2d2d2d
+        font-size: 19px
+        margin-bottom: -30px

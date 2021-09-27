@@ -72,6 +72,15 @@ function basket() {
 		.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
 
+function order() {
+	return src('app/sass/order.sass') // Выбираем источник: "app/sass/main.sass" или "app/less/main.less"
+		.pipe(eval(preprocessor)()) // Преобразуем значение переменной "preprocessor" в функцию
+		.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
+		.pipe(cleancss({ level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ })) // Минифицируем стили
+		.pipe(dest('build/css/')) // Выгрузим результат в папку "build/css/"
+		.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
+}
+
 
 function startwatch() {
 
@@ -79,6 +88,7 @@ function startwatch() {
 	watch('app/sass/critical.sass', critical);
 	watch('app/sass/home-style.sass', homeStyles);
 	watch('app/sass/basket.sass', basket);
+	watch('app/sass/order.sass', order);
 	watch('app/sass/category.sass', category);
 	watch('app/sass/footer.sass', footer);
 	watch('app/sass/product.sass', product);
@@ -97,6 +107,7 @@ exports.critical = critical;
 exports.footer = footer;
 
 exports.basket = basket;
+exports.order = order;
 exports.category = category;
 exports.product = product;
 
