@@ -1,9 +1,14 @@
+@import "vars"
 
 .order-tabs__header
+    +bp(mb)
+        flex-direction: column
     .tabs__header-item
         width: calc(100% / 3)
         flex-direction: column
         position: relative
+        +bp(mb)
+            width: 100%
         .circle-wrapper
             width: 60px
             height: 60px
@@ -31,6 +36,11 @@
             padding: 0
             height: 2px
             background: #ddd
+            +bp(mb)
+                position: static
+                margin: 20px 0
+                width: 2px
+                height: 80px
     .tabs__header-item__active
         .circle-wrapper
             border-color: #0259a9
@@ -67,12 +77,18 @@
     .tabs__body-item
         display: none
         .tabs__body-half
-            margin: 0 30px 15px 30px
+            margin: 0 30px 0 30px
+            +bp(mb)
+                flex-wrap: wrap
             label
                 flex-direction: column
                 flex: 1 1 auto
+                +bp(mb)
+                    margin-bottom: 45px
                 &:first-child
                     margin-right: 30px
+                    +bp(mb)
+                        margin-right: 0
 
                 span
                     color: #2d2d2d
@@ -85,6 +101,8 @@
                     height: 50px
         .tabs__body-full
             margin: 0 30px 15px 30px
+            +bp(mb)
+                margin: 0 30px 45px 30px
             label
                 flex-direction: column
                 span
@@ -101,6 +119,7 @@
                     margin-bottom: 24px
                     border: 1px solid #ddd
                     border-radius: 6px
+                    padding: 25px
         .tabs-boby__checkbox
             margin: 75px 30px 45px 30px
             input
@@ -131,6 +150,7 @@
     .prev-order
         margin-right: 15px
         text-decoration: underline
+        display: none
     .order-danger
         border: 1px solid #fb364a !important
     .order-success
@@ -171,6 +191,13 @@
         color: #0259a9
         font-size: 21px
         font-weight: 700
+    .form-action__general-coupon
+        +bp(mb)
+            justify-content: center
+            display: flex
+            margin-top: 20px
+            align-items: center
+            width: 100%
     .middle-summ__action
         font-size: 19px
         color: #2d2d2d
